@@ -26,3 +26,11 @@ menu:
     - name: Home
       pageRef: /
       weight: 1
+
+    - name: Espresso
+      pageRef: /blog/espresso
+      weight: 2
+
+    - name: Pourover
+      pageRef: /blog/pourover
+      weight: 3
