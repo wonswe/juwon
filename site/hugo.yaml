@@ -21,9 +21,9 @@ params:
   ShowCodeCopyButtons: true
   disableSpecial1stPost: true
 
-  homeInfoParams:
-    Title: hi there 👋
-    Content: I learn and write about coffee
+  # homeInfoParams:
+  #   Title: hi there 👋
+  #   Content: I learn and write about coffee
 
 menu:
   main:
