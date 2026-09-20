@@ -15,14 +15,14 @@ params:
   mainSections:
     - blog
   defaultTheme: auto
-  ShowReadingTime: true
+  ShowReadingTime: false
   ShowPostNavLinks: true
-  ShowBreadCrumbs: false
+  ShowBreadCrumbs: true
   ShowCodeCopyButtons: true
   disableSpecial1stPost: true
 
   homeInfoParams:
-    Title: Hi there wave
+    Title: hi there 👋
     Content: I learn and write about coffee
 
 menu:
