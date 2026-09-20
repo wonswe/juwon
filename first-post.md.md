@@ -1,5 +1,5 @@
 ---
-title: "첫 번째 글"
+title: 첫 번째 글
 date: 2026-09-20
 draft: false
 ---

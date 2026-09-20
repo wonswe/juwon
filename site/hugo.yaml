@@ -1,14 +1,27 @@
 baseURL: https://wonswe.github.io/juwon/
 title: juwon
-# languageCode: ko
-# defaultContentLanguage: ko
+locale: ko
+defaultContentLanguage: ko
 
 module:
   imports:
-    - path: github.com/imfing/hextra
+    - path: github.com/adityatelange/hugo-PaperMod
+
+pagination:
+  pagerSize: 10
+
+params:
+  env: production
+  mainSections:
+    - blog
+  defaultTheme: auto
+  ShowReadingTime: true
+  ShowPostNavLinks: true
+  ShowBreadCrumbs: false
+  ShowCodeCopyButtons: true
 
 menu:
   main:
-    - name: 블로그
-      pageRef: /blog
+    - name: 홈
+      pageRef: /
       weight: 1

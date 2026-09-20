@@ -2,4 +2,6 @@ module github.com/wonswe/juwon/site
 
 go 1.27.1
 
-require github.com/imfing/hextra v0.12.3 // indirect
+require (
+	github.com/adityatelange/hugo-PaperMod v0.0.0-20260802175912-d3768854d00a // indirect
+)
