@@ -19,6 +19,7 @@ params:
   ShowPostNavLinks: true
   ShowBreadCrumbs: false
   ShowCodeCopyButtons: true
+  disableSpecial1stPost: true
 
 menu:
   main:
