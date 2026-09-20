@@ -21,16 +21,20 @@ params:
   ShowCodeCopyButtons: true
   disableSpecial1stPost: true
 
+  homeInfoParams:
+    Title: Hi there wave
+    Content: I learn and write about coffee
+
 menu:
   main:
-    - name: Home
+    - name: home
       pageRef: /
       weight: 1
 
-    - name: Espresso
+    - name: espresso
       pageRef: /blog/espresso
       weight: 2
 
-    - name: Pourover
+    - name: pourover
       pageRef: /blog/pourover
       weight: 3
