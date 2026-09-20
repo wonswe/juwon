@@ -1,0 +1,79 @@
+name: Deploy Hextra blog
+
+on:
+  push:
+    branches: [main]
+  workflow_dispatch:
+
+permissions:
+  contents: read
+  pages: write
+  id-token: write
+
+concurrency:
+  group: pages
+  cancel-in-progress: false
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+
+    env:
+      HUGO_VERSION: '0.166.0'
+      TZ: America/New_York
+
+    steps:
+      - name: Download repository
+        uses: actions/checkout@v7
+
+      - name: Set up Go
+        uses: actions/setup-go@v7
+        with:
+          go-version-file: site/go.mod
+          cache: false
+
+      - name: Install Hugo
+        shell: bash
+        run: |
+          mkdir -p "$RUNNER_TEMP/hugo"
+          curl -fsSL \
+            "https://github.com/gohugoio/hugo/releases/download/v${HUGO_VERSION}/hugo_${HUGO_VERSION}_linux-amd64.tar.gz" \
+            | tar -xz -C "$RUNNER_TEMP/hugo"
+          echo "$RUNNER_TEMP/hugo" >> "$GITHUB_PATH"
+
+      - name: Configure GitHub Pages
+        id: pages
+        uses: actions/configure-pages@v6
+
+      - name: Copy posts into Hugo
+        run: |
+          mkdir -p site/content/blog
+          rsync -av \
+            --exclude='/site/' \
+            --exclude='.*' \
+            ./ site/content/blog/
+
+      - name: Build website
+        working-directory: site
+        env:
+          SITE_BASE_URL: ${{ steps.pages.outputs.base_url }}
+        run: |
+          hugo --minify --baseURL "${SITE_BASE_URL}/"
+
+      - name: Upload website
+        uses: actions/upload-pages-artifact@v5
+        with:
+          path: site/public
+
+  deploy:
+    needs: build
+    runs-on: ubuntu-latest
+
+    environment:
+      name: github-pages
+      url: ${{ steps.deployment.outputs.page_url }}
+
+    steps:
+      - name: Deploy website
+        id: deployment
+        uses: actions/deploy-pages@v5

@@ -1,0 +1,11 @@
+.DS_Store
+.obsidian/
+.trash/
+
+# Hugo 자동 생성 파일
+/site/public/
+/site/resources/_gen/
+/site/.hugo_build.lock
+
+# 배포할 때 원본 글을 복사하는 임시 위치
+/site/content/blog/
