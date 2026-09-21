@@ -17,7 +17,7 @@ params:
   defaultTheme: auto
   ShowReadingTime: false
   ShowPostNavLinks: true
-  ShowBreadCrumbs: true
+  # ShowBreadCrumbs: true
   ShowCodeCopyButtons: true
   disableSpecial1stPost: true
 
@@ -27,14 +27,14 @@ params:
 
 menu:
   main:
-    - name: home
+    - name: Home
       pageRef: /
       weight: 1
 
-    - name: espresso
-      pageRef: /blog/espresso
+    - name: Espresso
+      pageRef: /Blog/Espresso
       weight: 2
 
-    - name: pourover
-      pageRef: /blog/pourover
+    - name: Pourover
+      pageRef: /Blog/Pourover
       weight: 3
